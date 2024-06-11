@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  gatling:
+    image: denvazh/gatling:latest
+    container_name: gatling
+    network_mode: host
+    volumes:
+      - ./user-files:/opt/gatling/user-files
+      - ./results:/opt/gatling/results
+    entrypoint: /bin/bash
+    command: [ "-c", "tail -f /dev/null" ]
